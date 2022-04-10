@@ -1,0 +1,220 @@
+SQL> create table Pro_master(pro_no varchar2(6),descrip varchar2(15),profit_per number(4,2),unit_meas varchar2(10),qtyonhand number(8),reorderlvl number(8),sellprice number(8,2),costprice number(8,2));
+
+Table created.
+
+SQL> desc Pro_master
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PRO_NO                                             VARCHAR2(6)
+ DESCRIP                                            VARCHAR2(15)
+ PROFIT_PER                                         NUMBER(4,2)
+ UNIT_MEAS                                          VARCHAR2(10)
+ QTYONHAND                                          NUMBER(8)
+ REORDERLVL                                         NUMBER(8)
+ SELLPRICE                                          NUMBER(8,2)
+ COSTPRICE                                          NUMBER(8,2)
+
+SQL> insert into Pro_master values('P00001','T-shirts',5,'Piece',200,50,350,250);
+
+1 row created.
+
+SQL> select * from Pro_master;
+
+PRO_NO DESCRIP         PROFIT_PER UNIT_MEAS   QTYONHAND REORDERLVL  SELLPRICE   
+------ --------------- ---------- ---------- ---------- ---------- ----------   
+ COSTPRICE                                                                      
+----------                                                                      
+P00001 T-shirts                 5 Piece             200         50        350   
+       250                                                                      
+                                                                                
+
+SQL> commit;
+
+Commit complete.
+
+SQL> insert into Pro_master values('&pro_no','&descrip',&profit_per,'&unit_meas',&qtyonhand,&reorderlvl,&sellprice,&costprice);
+Enter value for pro_no: P0345
+Enter value for descrip: Shirts
+Enter value for profit_per: 6
+Enter value for unit_meas: Piece
+Enter value for qtyonhand: 150
+Enter value for reorderlvl: 50
+Enter value for sellprice: 500
+Enter value for costprice: 350
+old   1: insert into Pro_master values('&pro_no','&descrip',&profit_per,'&unit_meas',&qtyonhand,&reorderlvl,&sellprice,&costprice)
+new   1: insert into Pro_master values('P0345','Shirts',6,'Piece',150,50,500,350)
+
+1 row created.
+
+SQL> /
+Enter value for pro_no: P06734
+Enter value for descrip: Cotton Jeans
+Enter value for profit_per: 5
+Enter value for unit_meas: Piece
+Enter value for qtyonhand: 100
+Enter value for reorderlvl: 20
+Enter value for sellprice: 600
+Enter value for costprice: 450
+old   1: insert into Pro_master values('&pro_no','&descrip',&profit_per,'&unit_meas',&qtyonhand,&reorderlvl,&sellprice,&costprice)
+new   1: insert into Pro_master values('P06734','Cotton Jeans',5,'Piece',100,20,600,450)
+
+1 row created.
+
+SQL> /
+Enter value for pro_no: P07865
+Enter value for descrip: Jeans
+Enter value for profit_per: 5
+Enter value for unit_meas: Piece
+Enter value for qtyonhand: 100
+Enter value for reorderlvl: 20
+Enter value for sellprice: 750
+Enter value for costprice: 500
+old   1: insert into Pro_master values('&pro_no','&descrip',&profit_per,'&unit_meas',&qtyonhand,&reorderlvl,&sellprice,&costprice)
+new   1: insert into Pro_master values('P07865','Jeans',5,'Piece',100,20,750,500)
+
+1 row created.
+
+SQL> select * from Pro_master;
+
+PRO_NO DESCRIP         PROFIT_PER UNIT_MEAS   QTYONHAND REORDERLVL  SELLPRICE   
+------ --------------- ---------- ---------- ---------- ---------- ----------   
+ COSTPRICE                                                                      
+----------                                                                      
+P00001 T-shirts                 5 Piece             200         50        350   
+       250                                                                      
+                                                                                
+P0345  Shirts                   6 Piece             150         50        500   
+       350                                                                      
+                                                                                
+P06734 Cotton Jeans             5 Piece             100         20        600   
+       450                                                                      
+                                                                                
+
+PRO_NO DESCRIP         PROFIT_PER UNIT_MEAS   QTYONHAND REORDERLVL  SELLPRICE   
+------ --------------- ---------- ---------- ---------- ---------- ----------   
+ COSTPRICE                                                                      
+----------                                                                      
+P07865 Jeans                    5 Piece             100         20        750   
+       500                                                                      
+                                                                                
+
+SQL> commit;
+
+Commit complete.
+
+SQL> insert into Pro_master values('&pro_no','&descrip',&profit_per,'Piece',&qtyonhand,&reorderlvl,&sellprice,&costprice);
+Enter value for pro_no: P07868
+Enter value for descrip: Trousers
+Enter value for profit_per: 2
+Enter value for qtyonhand: 150
+Enter value for reorderlvl: 50
+Enter value for sellprice: 850
+Enter value for costprice: 550
+old   1: insert into Pro_master values('&pro_no','&descrip',&profit_per,'Piece',&qtyonhand,&reorderlvl,&sellprice,&costprice)
+new   1: insert into Pro_master values('P07868','Trousers',2,'Piece',150,50,850,550)
+
+1 row created.
+
+SQL> /
+Enter value for pro_no: P07885
+Enter value for descrip: Pull Overs
+Enter value for profit_per: 2.5
+Enter value for qtyonhand: 80
+Enter value for reorderlvl: 30
+Enter value for sellprice: 700
+Enter value for costprice: 450
+old   1: insert into Pro_master values('&pro_no','&descrip',&profit_per,'Piece',&qtyonhand,&reorderlvl,&sellprice,&costprice)
+new   1: insert into Pro_master values('P07885','Pull Overs',2.5,'Piece',80,30,700,450)
+
+1 row created.
+
+SQL> /
+Enter value for pro_no: P07965
+Enter value for descrip: Denim Shirts
+Enter value for profit_per: 4
+Enter value for qtyonhand: 100
+Enter value for reorderlvl: 40
+Enter value for sellprice: 350
+Enter value for costprice: 250
+old   1: insert into Pro_master values('&pro_no','&descrip',&profit_per,'Piece',&qtyonhand,&reorderlvl,&sellprice,&costprice)
+new   1: insert into Pro_master values('P07965','Denim Shirts',4,'Piece',100,40,350,250)
+
+1 row created.
+
+SQL> /
+Enter value for pro_no: P07975
+Enter value for descrip: W-Top
+Enter value for profit_per: 5
+Enter value for qtyonhand: 70
+Enter value for reorderlvl: 30
+Enter value for sellprice: 300
+Enter value for costprice: 175
+old   1: insert into Pro_master values('&pro_no','&descrip',&profit_per,'Piece',&qtyonhand,&reorderlvl,&sellprice,&costprice)
+new   1: insert into Pro_master values('P07975','W-Top',5,'Piece',70,30,300,175)
+
+1 row created.
+
+SQL> /
+Enter value for pro_no: P08865
+Enter value for descrip: Skirts
+Enter value for profit_per: 5
+Enter value for qtyonhand: 75
+Enter value for reorderlvl: 30
+Enter value for sellprice: 450
+Enter value for costprice: 300
+old   1: insert into Pro_master values('&pro_no','&descrip',&profit_per,'Piece',&qtyonhand,&reorderlvl,&sellprice,&costprice)
+new   1: insert into Pro_master values('P08865','Skirts',5,'Piece',75,30,450,300)
+
+1 row created.
+
+SQL> select * from Pro_master;
+
+PRO_NO DESCRIP         PROFIT_PER UNIT_MEAS   QTYONHAND REORDERLVL  SELLPRICE   
+------ --------------- ---------- ---------- ---------- ---------- ----------   
+ COSTPRICE                                                                      
+----------                                                                      
+P00001 T-shirts                 5 Piece             200         50        350   
+       250                                                                      
+                                                                                
+P0345  Shirts                   6 Piece             150         50        500   
+       350                                                                      
+                                                                                
+P06734 Cotton Jeans             5 Piece             100         20        600   
+       450                                                                      
+                                                                                
+
+PRO_NO DESCRIP         PROFIT_PER UNIT_MEAS   QTYONHAND REORDERLVL  SELLPRICE   
+------ --------------- ---------- ---------- ---------- ---------- ----------   
+ COSTPRICE                                                                      
+----------                                                                      
+P07865 Jeans                    5 Piece             100         20        750   
+       500                                                                      
+                                                                                
+P07868 Trousers                 2 Piece             150         50        850   
+       550                                                                      
+                                                                                
+P07885 Pull Overs             2.5 Piece              80         30        700   
+       450                                                                      
+                                                                                
+
+PRO_NO DESCRIP         PROFIT_PER UNIT_MEAS   QTYONHAND REORDERLVL  SELLPRICE   
+------ --------------- ---------- ---------- ---------- ---------- ----------   
+ COSTPRICE                                                                      
+----------                                                                      
+P07965 Denim Shirts             4 Piece             100         40        350   
+       250                                                                      
+                                                                                
+P07975 W-Top                    5 Piece              70         30        300   
+       175                                                                      
+                                                                                
+P08865 Skirts                   5 Piece              75         30        450   
+       300                                                                      
+                                                                                
+
+9 rows selected.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off

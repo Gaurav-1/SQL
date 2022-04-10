@@ -1,0 +1,153 @@
+SQL> create table Cl_master(cl_no varchar2(6),name varchar2(15),add1 varchar2(25),add2 varchar2(25),city varchar2(10),pincode number(8),state varchar2(15),bal_due number(10,2));
+
+Table created.
+
+SQL> desc Cl_master
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CL_NO                                              VARCHAR2(6)
+ NAME                                               VARCHAR2(15)
+ ADD1                                               VARCHAR2(25)
+ ADD2                                               VARCHAR2(25)
+ CITY                                               VARCHAR2(10)
+ PINCODE                                            NUMBER(8)
+ STATE                                              VARCHAR2(15)
+ BAL_DUE                                            NUMBER(10,2)
+
+SQL> insert into Cl_master values('C00001','Arpit','','','Mumbai',400054,'Maharashtra',15000);
+
+1 row created.
+
+SQL> select * from Cl_master;
+
+CL_NO  NAME            ADD1                      ADD2                           
+------ --------------- ------------------------- -------------------------      
+CITY          PINCODE STATE              BAL_DUE                                
+---------- ---------- --------------- ----------                                
+C00001 Arpit                                                                    
+Mumbai         400054 Maharashtra          15000                                
+                                                                                
+
+SQL> insert into Cl_master values('&cl_no','&name','','','&city',&pincode,'&state',&bal_due);
+Enter value for cl_no: C00002
+Enter value for name: Satvik
+Enter value for city: Madras
+Enter value for pincode: 780001
+Enter value for state: Tamil Nadu
+Enter value for bal_due: 0
+old   1: insert into Cl_master values('&cl_no','&name','','','&city',&pincode,'&state',&bal_due)
+new   1: insert into Cl_master values('C00002','Satvik','','','Madras',780001,'Tamil Nadu',0)
+
+1 row created.
+
+SQL> C00003
+  1* insert into Cl_master values('&cl_no','&name','','','&city',&pincode,'&state',&bal_due)
+SQL> /
+Enter value for cl_no: C00003
+Enter value for name: Siddhant
+Enter value for city: Mumbai
+Enter value for pincode: 400057
+Enter value for state: Maharashtra
+Enter value for bal_due: 5000
+old   1: insert into Cl_master values('&cl_no','&name','','','&city',&pincode,'&state',&bal_due)
+new   1: insert into Cl_master values('C00003','Siddhant','','','Mumbai',400057,'Maharashtra',5000)
+
+1 row created.
+
+SQL> select * from Cl_master;
+
+CL_NO  NAME            ADD1                      ADD2                           
+------ --------------- ------------------------- -------------------------      
+CITY          PINCODE STATE              BAL_DUE                                
+---------- ---------- --------------- ----------                                
+C00001 Arpit                                                                    
+Mumbai         400054 Maharashtra          15000                                
+                                                                                
+C00002 Satvik                                                                   
+Madras         780001 Tamil Nadu               0                                
+                                                                                
+C00003 Siddhant                                                                 
+Mumbai         400057 Maharashtra           5000                                
+                                                                                
+
+SQL> commit;
+
+Commit complete.
+
+SQL> insert into Cl_master values('&cl_no','&name','','','&city',&pincode,'&state',&bal_due);
+Enter value for cl_no: C00004
+Enter value for name: Aryan
+Enter value for city: Bangalore
+Enter value for pincode: 560001
+Enter value for state: Karnataka
+Enter value for bal_due: 0
+old   1: insert into Cl_master values('&cl_no','&name','','','&city',&pincode,'&state',&bal_due)
+new   1: insert into Cl_master values('C00004','Aryan','','','Bangalore',560001,'Karnataka',0)
+
+1 row created.
+
+SQL> /
+Enter value for cl_no: C00005
+Enter value for name: Priyanshi
+Enter value for city: Mumbai
+Enter value for pincode: 400060
+Enter value for state: Maharashtra
+Enter value for bal_due: 2000
+old   1: insert into Cl_master values('&cl_no','&name','','','&city',&pincode,'&state',&bal_due)
+new   1: insert into Cl_master values('C00005','Priyanshi','','','Mumbai',400060,'Maharashtra',2000)
+
+1 row created.
+
+SQL> /
+Enter value for cl_no: C00006
+Enter value for name: Deepak
+Enter value for city: Mangalore
+Enter value for pincode: 560050
+Enter value for state: Karnataka
+Enter value for bal_due: 0
+old   1: insert into Cl_master values('&cl_no','&name','','','&city',&pincode,'&state',&bal_due)
+new   1: insert into Cl_master values('C00006','Deepak','','','Mangalore',560050,'Karnataka',0)
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select * from Cl_master;
+
+CL_NO  NAME            ADD1                      ADD2                           
+------ --------------- ------------------------- -------------------------      
+CITY          PINCODE STATE              BAL_DUE                                
+---------- ---------- --------------- ----------                                
+C00001 Arpit                                                                    
+Mumbai         400054 Maharashtra          15000                                
+                                                                                
+C00002 Satvik                                                                   
+Madras         780001 Tamil Nadu               0                                
+                                                                                
+C00003 Siddhant                                                                 
+Mumbai         400057 Maharashtra           5000                                
+                                                                                
+
+CL_NO  NAME            ADD1                      ADD2                           
+------ --------------- ------------------------- -------------------------      
+CITY          PINCODE STATE              BAL_DUE                                
+---------- ---------- --------------- ----------                                
+C00004 Aryan                                                                    
+Bangalore      560001 Karnataka                0                                
+                                                                                
+C00005 Priyanshi                                                                
+Mumbai         400060 Maharashtra           2000                                
+                                                                                
+C00006 Deepak                                                                   
+Mangalore      560050 Karnataka                0                                
+                                                                                
+
+6 rows selected.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off
