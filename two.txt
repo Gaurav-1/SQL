@@ -1,0 +1,202 @@
+SQL> desc PRODUCT_MASTER
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PRODUCT_NO                                         VARCHAR2(6)
+ DESCRIPTION                                        VARCHAR2(15)
+ PROFITPERCENT                                      NUMBER(4,2)
+ UNITMEASURE                                        VARCHAR2(10)
+ QTYONHAND                                          NUMBER(8)
+ REORDERLVL                                         NUMBER(8)
+ SELLPRICE                                          NUMBER(8,2)
+ COSTPRICE                                          NUMBER(8,2)
+
+SQL> insert into PRODUCT_MASTER('&PNo','&dec',&profit,'&unit',&qty,&relvl,&sell,&cost);
+Enter value for pno: P0345
+Enter value for dec: shirts
+Enter value for profit: 6
+Enter value for unit: Piece
+Enter value for qty: 150
+Enter value for relvl: 50
+Enter value for sell: 500
+Enter value for cost: 350
+old   1: insert into PRODUCT_MASTER('&PNo','&dec',&profit,'&unit',&qty,&relvl,&sell,&cost)
+new   1: insert into PRODUCT_MASTER('P0345','shirts',6,'Piece',150,50,500,350)
+insert into PRODUCT_MASTER('P0345','shirts',6,'Piece',150,50,500,350)
+                           *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword 
+
+
+SQL> insert into PRODUCT_MASTER values('&PNo','&dec',&profit,'&unit',&qty,&relvl,&sell,&cost);
+Enter value for pno: P0345
+Enter value for dec: shirts
+Enter value for profit: 6
+Enter value for unit: Piece
+Enter value for qty: 150
+Enter value for relvl: 50
+Enter value for sell: 500
+Enter value for cost: 350
+old   1: insert into PRODUCT_MASTER values('&PNo','&dec',&profit,'&unit',&qty,&relvl,&sell,&cost)
+new   1: insert into PRODUCT_MASTER values('P0345','shirts',6,'Piece',150,50,500,350)
+
+1 row created.
+
+SQL> /
+Enter value for pno: P06734
+Enter value for dec: Cotton Jeans
+Enter value for profit: 5
+Enter value for unit: Piece
+Enter value for qty: 100
+Enter value for relvl: 20
+Enter value for sell: 600
+Enter value for cost: 450
+old   1: insert into PRODUCT_MASTER values('&PNo','&dec',&profit,'&unit',&qty,&relvl,&sell,&cost)
+new   1: insert into PRODUCT_MASTER values('P06734','Cotton Jeans',5,'Piece',100,20,600,450)
+
+1 row created.
+
+SQL> /
+Enter value for pno: P07865
+Enter value for dec: Jeans
+Enter value for profit: 5
+Enter value for unit: Piece
+Enter value for qty: 100
+Enter value for relvl: 20
+Enter value for sell: 750
+Enter value for cost: 500
+old   1: insert into PRODUCT_MASTER values('&PNo','&dec',&profit,'&unit',&qty,&relvl,&sell,&cost)
+new   1: insert into PRODUCT_MASTER values('P07865','Jeans',5,'Piece',100,20,750,500)
+
+1 row created.
+
+SQL> /
+Enter value for pno: P07868
+Enter value for dec: Trousers
+Enter value for profit: 2
+Enter value for unit: Piece
+Enter value for qty: 150
+Enter value for relvl: 50
+Enter value for sell: 850
+Enter value for cost: 550
+old   1: insert into PRODUCT_MASTER values('&PNo','&dec',&profit,'&unit',&qty,&relvl,&sell,&cost)
+new   1: insert into PRODUCT_MASTER values('P07868','Trousers',2,'Piece',150,50,850,550)
+
+1 row created.
+
+SQL> /
+Enter value for pno: P07885
+Enter value for dec: Pull Overs
+Enter value for profit: 2.5
+Enter value for unit: Pieces\
+Enter value for qty: 4
+Enter value for relvl: l
+Enter value for sell: l
+Enter value for cost: l
+old   1: insert into PRODUCT_MASTER values('&PNo','&dec',&profit,'&unit',&qty,&relvl,&sell,&cost)
+new   1: insert into PRODUCT_MASTER values('P07885','Pull Overs',2.5,'Pieces\',4,l,l,l)
+insert into PRODUCT_MASTER values('P07885','Pull Overs',2.5,'Pieces\',4,l,l,l)
+                                                                            *
+ERROR at line 1:
+ORA-00984: column not allowed here 
+
+
+SQL> /
+Enter value for pno: P07885
+Enter value for dec: Pull Overs
+Enter value for profit: 2.5
+Enter value for unit: Piece
+Enter value for qty: 80
+Enter value for relvl: 30
+Enter value for sell: 700
+Enter value for cost: 450
+old   1: insert into PRODUCT_MASTER values('&PNo','&dec',&profit,'&unit',&qty,&relvl,&sell,&cost)
+new   1: insert into PRODUCT_MASTER values('P07885','Pull Overs',2.5,'Piece',80,30,700,450)
+
+1 row created.
+
+SQL> /
+Enter value for pno: P07965
+Enter value for dec: Denim Shirts
+Enter value for profit: 4
+Enter value for unit: Piece
+Enter value for qty: 100
+Enter value for relvl: 40
+Enter value for sell: 350
+Enter value for cost: 250
+old   1: insert into PRODUCT_MASTER values('&PNo','&dec',&profit,'&unit',&qty,&relvl,&sell,&cost)
+new   1: insert into PRODUCT_MASTER values('P07965','Denim Shirts',4,'Piece',100,40,350,250)
+
+1 row created.
+
+SQL> /
+Enter value for pno: P07975
+Enter value for dec: W-Top
+Enter value for profit: 5
+Enter value for unit: Piece
+Enter value for qty: 70
+Enter value for relvl: 30
+Enter value for sell: 300
+Enter value for cost: 175
+old   1: insert into PRODUCT_MASTER values('&PNo','&dec',&profit,'&unit',&qty,&relvl,&sell,&cost)
+new   1: insert into PRODUCT_MASTER values('P07975','W-Top',5,'Piece',70,30,300,175)
+
+1 row created.
+
+SQL> /
+Enter value for pno: P08865
+Enter value for dec: Skirts
+Enter value for profit: 5
+Enter value for unit: Piece
+Enter value for qty: 75
+Enter value for relvl: 30
+Enter value for sell: 450
+Enter value for cost: 300
+old   1: insert into PRODUCT_MASTER values('&PNo','&dec',&profit,'&unit',&qty,&relvl,&sell,&cost)
+new   1: insert into PRODUCT_MASTER values('P08865','Skirts',5,'Piece',75,30,450,300)
+
+1 row created.
+
+SQL> select * from PRODUCT_MASTER;
+
+PRODUC DESCRIPTION     PROFITPERCENT UNITMEASUR  QTYONHAND REORDERLVL  SELLPRICE
+------ --------------- ------------- ---------- ---------- ---------- ----------
+ COSTPRICE                                                                      
+----------                                                                      
+P0345  shirts                      6 Piece             150         50        500
+       350                                                                      
+                                                                                
+P06734 Cotton Jeans                5 Piece             100         20        600
+       450                                                                      
+                                                                                
+P07865 Jeans                       5 Piece             100         20        750
+       500                                                                      
+                                                                                
+
+PRODUC DESCRIPTION     PROFITPERCENT UNITMEASUR  QTYONHAND REORDERLVL  SELLPRICE
+------ --------------- ------------- ---------- ---------- ---------- ----------
+ COSTPRICE                                                                      
+----------                                                                      
+P07868 Trousers                    2 Piece             150         50        850
+       550                                                                      
+                                                                                
+P07885 Pull Overs                2.5 Piece              80         30        700
+       450                                                                      
+                                                                                
+P07965 Denim Shirts                4 Piece             100         40        350
+       250                                                                      
+                                                                                
+
+PRODUC DESCRIPTION     PROFITPERCENT UNITMEASUR  QTYONHAND REORDERLVL  SELLPRICE
+------ --------------- ------------- ---------- ---------- ---------- ----------
+ COSTPRICE                                                                      
+----------                                                                      
+P07975 W-Top                       5 Piece              70         30        300
+       175                                                                      
+                                                                                
+P08865 Skirts                      5 Piece              75         30        450
+       300                                                                      
+                                                                                
+
+8 rows selected.
+
+SQL> spool off;

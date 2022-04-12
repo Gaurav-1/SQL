@@ -1,0 +1,132 @@
+SQL> desc CLIENT_MASTER;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CLIENT_NO                                          VARCHAR2(6)
+ NAME                                               VARCHAR2(20)
+ ADDRESS1                                           VARCHAR2(30)
+ ADDRESS2                                           VARCHAR2(30)
+ CITY                                               VARCHAR2(15)
+ PINCODE                                            NUMBER(8)
+ STATE                                              VARCHAR2(15)
+ BALDUE                                             NUMBER(10,2)
+
+SQL> select * from CLIENT_MASTER;
+
+CLIENT NAME                 ADDRESS1                                            
+------ -------------------- ------------------------------                      
+ADDRESS2                       CITY               PINCODE STATE                 
+------------------------------ --------------- ---------- ---------------       
+    BALDUE                                                                      
+----------                                                                      
+C00001 Arpit                                                                    
+                               Mumbai              400054 Maharashtra           
+     15000                                                                      
+                                                                                
+C00002 Satvik                                                                   
+                               Madras              780001 Tamil Nadu            
+         0                                                                      
+
+CLIENT NAME                 ADDRESS1                                            
+------ -------------------- ------------------------------                      
+ADDRESS2                       CITY               PINCODE STATE                 
+------------------------------ --------------- ---------- ---------------       
+    BALDUE                                                                      
+----------                                                                      
+                                                                                
+C0003  Siddhant                                                                 
+                               Mumbai              400057 Maharashtra           
+      5000                                                                      
+                                                                                
+C00004 Aryan                                                                    
+                               Bangalore           560001 Karnataka             
+
+CLIENT NAME                 ADDRESS1                                            
+------ -------------------- ------------------------------                      
+ADDRESS2                       CITY               PINCODE STATE                 
+------------------------------ --------------- ---------- ---------------       
+    BALDUE                                                                      
+----------                                                                      
+         0                                                                      
+                                                                                
+C00005 Priyanshi                                                                
+                               Mumbai              400060 Maharastra            
+      2000                                                                      
+                                                                                
+C00006 Deepak                                                                   
+
+CLIENT NAME                 ADDRESS1                                            
+------ -------------------- ------------------------------                      
+ADDRESS2                       CITY               PINCODE STATE                 
+------------------------------ --------------- ---------- ---------------       
+    BALDUE                                                                      
+----------                                                                      
+                               Mangalore           560050 Karnataka             
+         0                                                                      
+                                                                                
+P00001 T-Shirts             5                                                   
+Piece                          200                     50 350                   
+       250                                                                      
+                                                                                
+
+7 rows selected.
+
+SQL> desc PRODUCT_MASTER;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PRODUCT_NO                                         VARCHAR2(6)
+ DESCRIPTION                                        VARCHAR2(15)
+ PROFITPERCENT                                      NUMBER(4,2)
+ UNITMEASURE                                        VARCHAR2(10)
+ QTYONHAND                                          NUMBER(8)
+ REORDERLVL                                         NUMBER(8)
+ SELLPRICE                                          NUMBER(8,2)
+ COSTPRICE                                          NUMBER(8,2)
+
+SQL> select * from PRODUCT_MASTER;
+
+PRODUC DESCRIPTION     PROFITPERCENT UNITMEASUR  QTYONHAND REORDERLVL  SELLPRICE
+------ --------------- ------------- ---------- ---------- ---------- ----------
+ COSTPRICE                                                                      
+----------                                                                      
+P0345  shirts                      6 Piece             150         50        500
+       350                                                                      
+                                                                                
+P06734 Cotton Jeans                5 Piece             100         20        600
+       450                                                                      
+                                                                                
+P07865 Jeans                       5 Piece             100         20        750
+       500                                                                      
+                                                                                
+
+PRODUC DESCRIPTION     PROFITPERCENT UNITMEASUR  QTYONHAND REORDERLVL  SELLPRICE
+------ --------------- ------------- ---------- ---------- ---------- ----------
+ COSTPRICE                                                                      
+----------                                                                      
+P07868 Trousers                    2 Piece             150         50        850
+       550                                                                      
+                                                                                
+P07885 Pull Overs                2.5 Piece              80         30        700
+       450                                                                      
+                                                                                
+P07965 Denim Shirts                4 Piece             100         40        350
+       250                                                                      
+                                                                                
+
+PRODUC DESCRIPTION     PROFITPERCENT UNITMEASUR  QTYONHAND REORDERLVL  SELLPRICE
+------ --------------- ------------- ---------- ---------- ---------- ----------
+ COSTPRICE                                                                      
+----------                                                                      
+P07975 W-Top                       5 Piece              70         30        300
+       175                                                                      
+                                                                                
+P08865 Skirts                      5 Piece              75         30        450
+       300                                                                      
+                                                                                
+
+8 rows selected.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off
