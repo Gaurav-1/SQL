@@ -1,0 +1,147 @@
+SQL> create table SalesMan_Master(SalesManNo varchar2(6),SalesManName varchar2(20),Address1 varchar2(30),Address2 varchar2(30),City varchar2(20),Pincode number(8),State varchar2(20),SalAmt number(8,2),TgtToGet number(6,2),YtdSales number(6,2),Remarks varchar2(60));
+
+Table created.
+
+SQL> insert into SalesMan_Master(SalesManNo,SalesManName,Address1,Address2,City,Pincode,State,SalAmt,TgtToGet,YtdSales,Remarks) values('&SMN','&SName','&addr1','&addr2','Mumbai',&pincode,'Maharashtra',3000,&TTG,&YS,'Good');
+Enter value for smn: S00001
+Enter value for sname: Aman
+Enter value for addr1: A/14
+Enter value for addr2: Worli
+Enter value for pincode: 400002
+Enter value for ttg: 100
+Enter value for ys: 50
+old   1: insert into SalesMan_Master(SalesManNo,SalesManName,Address1,Address2,City,Pincode,State,SalAmt,TgtToGet,YtdSales,Remarks) values('&SMN','&SName','&addr1','&addr2','Mumbai',&pincode,'Maharashtra',3000,&TTG,&YS,'Good')
+new   1: insert into SalesMan_Master(SalesManNo,SalesManName,Address1,Address2,City,Pincode,State,SalAmt,TgtToGet,YtdSales,Remarks) values('S00001','Aman','A/14','Worli','Mumbai',400002,'Maharashtra',3000,100,50,'Good')
+
+1 row created.
+
+SQL> /
+Enter value for smn: Omkar
+Enter value for sname: 65
+Enter value for addr1: Nariman
+Enter value for addr2: 1
+Enter value for pincode: 1
+Enter value for ttg: 1
+Enter value for ys: 1
+old   1: insert into SalesMan_Master(SalesManNo,SalesManName,Address1,Address2,City,Pincode,State,SalAmt,TgtToGet,YtdSales,Remarks) values('&SMN','&SName','&addr1','&addr2','Mumbai',&pincode,'Maharashtra',3000,&TTG,&YS,'Good')
+new   1: insert into SalesMan_Master(SalesManNo,SalesManName,Address1,Address2,City,Pincode,State,SalAmt,TgtToGet,YtdSales,Remarks) values('Omkar','65','Nariman','1','Mumbai',1,'Maharashtra',3000,1,1,'Good')
+
+1 row created.
+
+SQL> delete from SalesMan_Master where SalesManNo='Omkar';
+
+1 row deleted.
+
+SQL> insert into SalesMan_Master(SalesManNo,SalesManName,Address1,Address2,City,Pincode,State,SalAmt,TgtToGet,YtdSales,Remarks) values('&SMN','&SName','&addr1','&addr2','Mumbai',&pincode,'Maharashtra',3000,&TTG,&YS,'Good');
+Enter value for smn: S00002
+Enter value for sname: Omkar
+Enter value for addr1: 65
+Enter value for addr2: Nariman
+Enter value for pincode: 400001
+Enter value for ttg: 200
+Enter value for ys: 100
+old   1: insert into SalesMan_Master(SalesManNo,SalesManName,Address1,Address2,City,Pincode,State,SalAmt,TgtToGet,YtdSales,Remarks) values('&SMN','&SName','&addr1','&addr2','Mumbai',&pincode,'Maharashtra',3000,&TTG,&YS,'Good')
+new   1: insert into SalesMan_Master(SalesManNo,SalesManName,Address1,Address2,City,Pincode,State,SalAmt,TgtToGet,YtdSales,Remarks) values('S00002','Omkar','65','Nariman','Mumbai',400001,'Maharashtra',3000,200,100,'Good')
+
+1 row created.
+
+SQL> /
+Enter value for smn: S00003
+Enter value for sname: Raj
+Enter value for addr1: P-7
+Enter value for addr2: Bandra
+Enter value for pincode: 400032
+Enter value for ttg: 200
+Enter value for ys: 100
+old   1: insert into SalesMan_Master(SalesManNo,SalesManName,Address1,Address2,City,Pincode,State,SalAmt,TgtToGet,YtdSales,Remarks) values('&SMN','&SName','&addr1','&addr2','Mumbai',&pincode,'Maharashtra',3000,&TTG,&YS,'Good')
+new   1: insert into SalesMan_Master(SalesManNo,SalesManName,Address1,Address2,City,Pincode,State,SalAmt,TgtToGet,YtdSales,Remarks) values('S00003','Raj','P-7','Bandra','Mumbai',400032,'Maharashtra',3000,200,100,'Good')
+
+1 row created.
+
+SQL> /
+Enter value for smn: S00004
+Enter value for sname: Ashish
+Enter value for addr1: A/5
+Enter value for addr2: Juhu
+Enter value for pincode: 400044
+Enter value for ttg: 200
+Enter value for ys: 150
+old   1: insert into SalesMan_Master(SalesManNo,SalesManName,Address1,Address2,City,Pincode,State,SalAmt,TgtToGet,YtdSales,Remarks) values('&SMN','&SName','&addr1','&addr2','Mumbai',&pincode,'Maharashtra',3000,&TTG,&YS,'Good')
+new   1: insert into SalesMan_Master(SalesManNo,SalesManName,Address1,Address2,City,Pincode,State,SalAmt,TgtToGet,YtdSales,Remarks) values('S00004','Ashish','A/5','Juhu','Mumbai',400044,'Maharashtra',3000,200,150,'Good')
+
+1 row created.
+
+SQL> select * from SalesMan_Master;
+
+SALESM SALESMANNAME         ADDRESS1                       ADDRESS2                       CITY                    PINCODE STATE                    SALAMT   TGTTOGET   YTDSALES REMARKS                                                                   
+------ -------------------- ------------------------------ ------------------------------ -------------------- ---------- -------------------- ---------- ---------- ---------- ------------------------------------------------------------              
+S00001 Aman                 A/14                           Worli                          Mumbai                   400002 Maharashtra                3000        100         50 Good                                                                      
+S00002 Omkar                65                             Nariman                        Mumbai                   400001 Maharashtra                3000        200        100 Good                                                                      
+S00003 Raj                  P-7                            Bandra                         Mumbai                   400032 Maharashtra                3000        200        100 Good                                                                      
+S00004 Ashish               A/5                            Juhu                           Mumbai                   400044 Maharashtra                3000        200        150 Good                                                                      
+
+SQL> set linesize 200;
+SQL> select * from SalesMan_Master;
+
+SALESM SALESMANNAME         ADDRESS1                       ADDRESS2                       CITY                    PINCODE STATE                    SALAMT   TGTTOGET   YTDSALES                         
+------ -------------------- ------------------------------ ------------------------------ -------------------- ---------- -------------------- ---------- ---------- ----------                         
+REMARKS                                                                                                                                                                                                 
+------------------------------------------------------------                                                                                                                                            
+S00001 Aman                 A/14                           Worli                          Mumbai                   400002 Maharashtra                3000        100         50                         
+Good                                                                                                                                                                                                    
+                                                                                                                                                                                                        
+S00002 Omkar                65                             Nariman                        Mumbai                   400001 Maharashtra                3000        200        100                         
+Good                                                                                                                                                                                                    
+                                                                                                                                                                                                        
+S00003 Raj                  P-7                            Bandra                         Mumbai                   400032 Maharashtra                3000        200        100                         
+Good                                                                                                                                                                                                    
+                                                                                                                                                                                                        
+
+SALESM SALESMANNAME         ADDRESS1                       ADDRESS2                       CITY                    PINCODE STATE                    SALAMT   TGTTOGET   YTDSALES                         
+------ -------------------- ------------------------------ ------------------------------ -------------------- ---------- -------------------- ---------- ---------- ----------                         
+REMARKS                                                                                                                                                                                                 
+------------------------------------------------------------                                                                                                                                            
+S00004 Ashish               A/5                            Juhu                           Mumbai                   400044 Maharashtra                3000        200        150                         
+Good                                                                                                                                                                                                    
+                                                                                                                                                                                                        
+
+SQL> set linesize 150;
+SQL> select * from SalesMan_Master;
+
+SALESM SALESMANNAME         ADDRESS1                       ADDRESS2                       CITY                    PINCODE STATE                       
+------ -------------------- ------------------------------ ------------------------------ -------------------- ---------- --------------------        
+    SALAMT   TGTTOGET   YTDSALES REMARKS                                                                                                              
+---------- ---------- ---------- ------------------------------------------------------------                                                         
+S00001 Aman                 A/14                           Worli                          Mumbai                   400002 Maharashtra                 
+      3000        100         50 Good                                                                                                                 
+                                                                                                                                                      
+S00002 Omkar                65                             Nariman                        Mumbai                   400001 Maharashtra                 
+      3000        200        100 Good                                                                                                                 
+                                                                                                                                                      
+S00003 Raj                  P-7                            Bandra                         Mumbai                   400032 Maharashtra                 
+      3000        200        100 Good                                                                                                                 
+                                                                                                                                                      
+
+SALESM SALESMANNAME         ADDRESS1                       ADDRESS2                       CITY                    PINCODE STATE                       
+------ -------------------- ------------------------------ ------------------------------ -------------------- ---------- --------------------        
+    SALAMT   TGTTOGET   YTDSALES REMARKS                                                                                                              
+---------- ---------- ---------- ------------------------------------------------------------                                                         
+S00004 Ashish               A/5                            Juhu                           Mumbai                   400044 Maharashtra                 
+      3000        200        150 Good                                                                                                                 
+                                                                                                                                                      
+
+SQL> set linesize 300;
+SQL> select * from SalesMan_Master;
+
+SALESM SALESMANNAME         ADDRESS1                       ADDRESS2                       CITY                    PINCODE STATE                    SALAMT   TGTTOGET   YTDSALES REMARKS                                                                                                                     
+------ -------------------- ------------------------------ ------------------------------ -------------------- ---------- -------------------- ---------- ---------- ---------- ------------------------------------------------------------                                                                
+S00001 Aman                 A/14                           Worli                          Mumbai                   400002 Maharashtra                3000        100         50 Good                                                                                                                        
+S00002 Omkar                65                             Nariman                        Mumbai                   400001 Maharashtra                3000        200        100 Good                                                                                                                        
+S00003 Raj                  P-7                            Bandra                         Mumbai                   400032 Maharashtra                3000        200        100 Good                                                                                                                        
+S00004 Ashish               A/5                            Juhu                           Mumbai                   400044 Maharashtra                3000        200        150 Good                                                                                                                        
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;

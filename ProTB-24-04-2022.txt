@@ -1,0 +1,182 @@
+SQL> create table Product_Master(ProductNo varchar2(6), Description varchar2(15) not null, ProfitPercent number(4,2) not null, UnitMeasure varchar2(10) not null, QtyOnHand number(8) not null, ReorderLVL number(8) not null, SellPrice number(8,2) not null, CostPrice number(8,2) not null, constraint Pro_pk PRIMARY KEY(ProductNo), constraint Pro_Pkchk CHECK(ProductNo like 'P%'), constraint Pro_dft check(SellPrice!=0 and CostPrice!=0));
+
+Table created.
+
+SQL> insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost);
+Enter value for prono: P00001
+Enter value for des: T-Shirts
+Enter value for pftprct: 5
+Enter value for unitmea: Pices
+Enter value for qoh: s
+Enter value for reord: s
+Enter value for sell: s
+Enter value for cost: s
+old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost)
+new   1: insert into Product_Master values('P00001','T-Shirts',5,'Pices',s,s,s,s)
+insert into Product_Master values('P00001','T-Shirts',5,'Pices',s,s,s,s)
+                                                                      *
+ERROR at line 1:
+ORA-00984: column not allowed here 
+
+
+SQL> /
+Enter value for prono: P00001
+Enter value for des: Ta
+Enter value for pftprct: a
+Enter value for unitmea: a
+Enter value for qoh: 
+Enter value for reord: a
+Enter value for sell: a
+Enter value for cost: a
+old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost)
+new   1: insert into Product_Master values('P00001','Ta',a,'a',,a,a,a)
+insert into Product_Master values('P00001','Ta',a,'a',,a,a,a)
+                                                      *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost);
+Enter value for prono: P00001
+Enter value for des: T-Shirts
+Enter value for pftprct: 5
+Enter value for unitmea: Piece
+Enter value for qoh: 200
+Enter value for reord: 50
+Enter value for sell: 350
+Enter value for cost: 250
+old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost)
+new   1: insert into Product_Master values('P00001','T-Shirts',5,'Piece',200,50,350,250)
+
+1 row created.
+
+SQL> /
+Enter value for prono: P0345
+Enter value for des: Shirts
+Enter value for pftprct: 6
+Enter value for unitmea: Piece
+Enter value for qoh: 150
+Enter value for reord: 50
+Enter value for sell: 500
+Enter value for cost: 350
+old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost)
+new   1: insert into Product_Master values('P0345','Shirts',6,'Piece',150,50,500,350)
+
+1 row created.
+
+SQL> /
+Enter value for prono: P06734
+Enter value for des: Cotton Jeans
+Enter value for pftprct: 5
+Enter value for unitmea: Piece
+Enter value for qoh: 150
+Enter value for reord: d
+Enter value for sell: d
+Enter value for cost: d
+old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost)
+new   1: insert into Product_Master values('P06734','Cotton Jeans',5,'Piece',150,d,d,d)
+insert into Product_Master values('P06734','Cotton Jeans',5,'Piece',150,d,d,d)
+                                                                            *
+ERROR at line 1:
+ORA-00984: column not allowed here 
+
+
+SQL> /
+Enter value for prono: P06734
+Enter value for des: Cotton Jeans
+Enter value for pftprct: 5
+Enter value for unitmea: Piece
+Enter value for qoh: 100
+Enter value for reord: 20
+Enter value for sell: 600
+Enter value for cost: 450
+old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost)
+new   1: insert into Product_Master values('P06734','Cotton Jeans',5,'Piece',100,20,600,450)
+
+1 row created.
+
+SQL> /
+Enter value for prono: P07865
+Enter value for des: Jeans
+Enter value for pftprct: 5
+Enter value for unitmea: Piece
+Enter value for qoh: 100
+Enter value for reord: 20
+Enter value for sell: 750
+Enter value for cost: 500
+old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost)
+new   1: insert into Product_Master values('P07865','Jeans',5,'Piece',100,20,750,500)
+
+1 row created.
+
+SQL> /
+Enter value for prono: P07868
+Enter value for des: Trousers
+Enter value for pftprct: 2
+Enter value for unitmea: Piece
+Enter value for qoh: 150
+Enter value for reord: 50
+Enter value for sell: 850
+Enter value for cost: 550
+old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost)
+new   1: insert into Product_Master values('P07868','Trousers',2,'Piece',150,50,850,550)
+
+1 row created.
+
+SQL> /
+Enter value for prono: P07885
+Enter value for des: Pull Overs
+Enter value for pftprct: 2.5
+Enter value for unitmea: Piece
+Enter value for qoh: 80
+Enter value for reord: 30
+Enter value for sell: 700
+Enter value for cost: 450
+old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost)
+new   1: insert into Product_Master values('P07885','Pull Overs',2.5,'Piece',80,30,700,450)
+
+1 row created.
+
+SQL> /
+Enter value for prono: P07965
+Enter value for des: Denim Shirts
+Enter value for pftprct: 4
+Enter value for unitmea: Piece
+Enter value for qoh: 100
+Enter value for reord: 40
+Enter value for sell: 350
+Enter value for cost: 250
+old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost)
+new   1: insert into Product_Master values('P07965','Denim Shirts',4,'Piece',100,40,350,250)
+
+1 row created.
+
+SQL> /
+Enter value for prono: P07975
+Enter value for des: Lycra Tops
+Enter value for pftprct: 5
+Enter value for unitmea: Piece
+Enter value for qoh: 70
+Enter value for reord: 30
+Enter value for sell: 300
+Enter value for cost: 175
+old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost)
+new   1: insert into Product_Master values('P07975','Lycra Tops',5,'Piece',70,30,300,175)
+
+1 row created.
+
+SQL> /
+Enter value for prono: P08865
+Enter value for des: Skirts
+Enter value for pftprct: 5
+Enter value for unitmea: Piece
+Enter value for qoh: 75
+Enter value for reord: 30
+Enter value for sell: 450
+Enter value for cost: 300
+old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost)
+new   1: insert into Product_Master values('P08865','Skirts',5,'Piece',75,30,450,300)
+
+1 row created.
+
+SQL> spool off;
