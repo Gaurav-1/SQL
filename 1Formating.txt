@@ -1,0 +1,211 @@
+SQL> select * from Client_Master;
+
+CLIENT NAME                 ADDRESS1                                            
+------ -------------------- ------------------------------                      
+ADDRESS2                       CITY               PINCODE STATE                 
+------------------------------ --------------- ---------- ---------------       
+   BAL_DUE                                                                      
+----------                                                                      
+C00001 Ivan Bayross                                                             
+                               Mumbai              400054 Maharashtra           
+     15000                                                                      
+                                                                                
+C00002 Mamta Muzumdar                                                           
+                               Madras              780001 Tamil Nadu            
+         0                                                                      
+
+CLIENT NAME                 ADDRESS1                                            
+------ -------------------- ------------------------------                      
+ADDRESS2                       CITY               PINCODE STATE                 
+------------------------------ --------------- ---------- ---------------       
+   BAL_DUE                                                                      
+----------                                                                      
+                                                                                
+C00003 Chhaya Bankar                                                            
+                               Mumbai              560001 Maharashtra           
+      5000                                                                      
+                                                                                
+C00004 Ashwini Joshi                                                            
+                               Bangalore           560001 Karnataka             
+
+CLIENT NAME                 ADDRESS1                                            
+------ -------------------- ------------------------------                      
+ADDRESS2                       CITY               PINCODE STATE                 
+------------------------------ --------------- ---------- ---------------       
+   BAL_DUE                                                                      
+----------                                                                      
+         0                                                                      
+                                                                                
+C00005 Hansel Colaco                                                            
+                               Mumbai              400060 Maharashtra           
+      2000                                                                      
+                                                                                
+C00006 Deepak Sharma                                                            
+
+CLIENT NAME                 ADDRESS1                                            
+------ -------------------- ------------------------------                      
+ADDRESS2                       CITY               PINCODE STATE                 
+------------------------------ --------------- ---------- ---------------       
+   BAL_DUE                                                                      
+----------                                                                      
+                               Mangalore           560050 Karnataka             
+         0                                                                      
+                                                                                
+
+6 rows selected.
+
+SQL> set linesize 250;
+SQL> select * from Client_Master;
+
+CLIENT NAME                 ADDRESS1                       ADDRESS2                       CITY               PINCODE STATE              BAL_DUE                                                                                                           
+------ -------------------- ------------------------------ ------------------------------ --------------- ---------- --------------- ----------                                                                                                           
+C00001 Ivan Bayross                                                                       Mumbai              400054 Maharashtra          15000                                                                                                           
+C00002 Mamta Muzumdar                                                                     Madras              780001 Tamil Nadu               0                                                                                                           
+C00003 Chhaya Bankar                                                                      Mumbai              560001 Maharashtra           5000                                                                                                           
+C00004 Ashwini Joshi                                                                      Bangalore           560001 Karnataka                0                                                                                                           
+C00005 Hansel Colaco                                                                      Mumbai              400060 Maharashtra           2000                                                                                                           
+C00006 Deepak Sharma                                                                      Mangalore           560050 Karnataka                0                                                                                                           
+
+6 rows selected.
+
+SQL> COLUMN ClientNO format a10 heading ClientNO;
+SQL> select * from Client_Master;
+
+ClientNO   NAME                 ADDRESS1                       ADDRESS2                       CITY               PINCODE STATE              BAL_DUE                                                                                                       
+---------- -------------------- ------------------------------ ------------------------------ --------------- ---------- --------------- ----------                                                                                                       
+C00001     Ivan Bayross                                                                       Mumbai              400054 Maharashtra          15000                                                                                                       
+C00002     Mamta Muzumdar                                                                     Madras              780001 Tamil Nadu               0                                                                                                       
+C00003     Chhaya Bankar                                                                      Mumbai              560001 Maharashtra           5000                                                                                                       
+C00004     Ashwini Joshi                                                                      Bangalore           560001 Karnataka                0                                                                                                       
+C00005     Hansel Colaco                                                                      Mumbai              400060 Maharashtra           2000                                                                                                       
+C00006     Deepak Sharma                                                                      Mangalore           560050 Karnataka                0                                                                                                       
+
+6 rows selected.
+
+SQL> COLUMN Name heading 'Client|Names';
+SQL> select * from Client_Master;
+
+           Client                                                                                                                                                                                                                                         
+ClientNO   Names      ADDRESS1                       ADDRESS2                       CITY               PINCODE STATE              BAL_DUE                                                                                                                 
+---------- ---------- ------------------------------ ------------------------------ --------------- ---------- --------------- ----------                                                                                                                 
+C00001     Ivan Bayro                                                               Mumbai              400054 Maharashtra          15000                                                                                                                 
+           ss                                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                          
+C00002     Mamta Muzu                                                               Madras              780001 Tamil Nadu               0                                                                                                                 
+           mdar                                                                                                                                                                                                                                           
+                                                                                                                                                                                                                                                          
+C00003     Chhaya Ban                                                               Mumbai              560001 Maharashtra           5000                                                                                                                 
+           kar                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                          
+C00004     Ashwini Jo                                                               Bangalore           560001 Karnataka                0                                                                                                                 
+
+           Client                                                                                                                                                                                                                                         
+ClientNO   Names      ADDRESS1                       ADDRESS2                       CITY               PINCODE STATE              BAL_DUE                                                                                                                 
+---------- ---------- ------------------------------ ------------------------------ --------------- ---------- --------------- ----------                                                                                                                 
+           shi                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                          
+C00005     Hansel Col                                                               Mumbai              400060 Maharashtra           2000                                                                                                                 
+           aco                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                          
+C00006     Deepak Sha                                                               Mangalore           560050 Karnataka                0                                                                                                                 
+           rma                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                          
+
+6 rows selected.
+
+SQL> COLUMN Name format a15 heading 'Client|Names';
+SQL> select * from Client_Master;
+
+           Client                                                                                                                                                                                                                                         
+ClientNO   Names           ADDRESS1                       ADDRESS2                       CITY               PINCODE STATE              BAL_DUE                                                                                                            
+---------- --------------- ------------------------------ ------------------------------ --------------- ---------- --------------- ----------                                                                                                            
+C00001     Ivan Bayross                                                                  Mumbai              400054 Maharashtra          15000                                                                                                            
+C00002     Mamta Muzumdar                                                                Madras              780001 Tamil Nadu               0                                                                                                            
+C00003     Chhaya Bankar                                                                 Mumbai              560001 Maharashtra           5000                                                                                                            
+C00004     Ashwini Joshi                                                                 Bangalore           560001 Karnataka                0                                                                                                            
+C00005     Hansel Colaco                                                                 Mumbai              400060 Maharashtra           2000                                                                                                            
+C00006     Deepak Sharma                                                                 Mangalore           560050 Karnataka                0                                                                                                            
+
+6 rows selected.
+
+SQL> set underline *;
+SQL> select * from Client_Master;
+
+           Client                                                                                                                                                                                                                                         
+ClientNO   Names           ADDRESS1                       ADDRESS2                       CITY               PINCODE STATE              BAL_DUE                                                                                                            
+********** *************** ****************************** ****************************** *************** ********** *************** **********                                                                                                            
+C00001     Ivan Bayross                                                                  Mumbai              400054 Maharashtra          15000                                                                                                            
+C00002     Mamta Muzumdar                                                                Madras              780001 Tamil Nadu               0                                                                                                            
+C00003     Chhaya Bankar                                                                 Mumbai              560001 Maharashtra           5000                                                                                                            
+C00004     Ashwini Joshi                                                                 Bangalore           560001 Karnataka                0                                                                                                            
+C00005     Hansel Colaco                                                                 Mumbai              400060 Maharashtra           2000                                                                                                            
+C00006     Deepak Sharma                                                                 Mangalore           560050 Karnataka                0                                                                                                            
+
+6 rows selected.
+
+SQL> set underline +;
+SQL> select * from Client_Master;
+
+           Client                                                                                                                                                                                                                                         
+ClientNO   Names           ADDRESS1                       ADDRESS2                       CITY               PINCODE STATE              BAL_DUE                                                                                                            
+++++++++++ +++++++++++++++ ++++++++++++++++++++++++++++++ ++++++++++++++++++++++++++++++ +++++++++++++++ ++++++++++ +++++++++++++++ ++++++++++                                                                                                            
+C00001     Ivan Bayross                                                                  Mumbai              400054 Maharashtra          15000                                                                                                            
+C00002     Mamta Muzumdar                                                                Madras              780001 Tamil Nadu               0                                                                                                            
+C00003     Chhaya Bankar                                                                 Mumbai              560001 Maharashtra           5000                                                                                                            
+C00004     Ashwini Joshi                                                                 Bangalore           560001 Karnataka                0                                                                                                            
+C00005     Hansel Colaco                                                                 Mumbai              400060 Maharashtra           2000                                                                                                            
+C00006     Deepak Sharma                                                                 Mangalore           560050 Karnataka                0                                                                                                            
+
+6 rows selected.
+
+SQL> set underline =;
+SQL> select * from Client_Master;
+
+           Client                                                                                                                                                                                                                                         
+ClientNO   Names           ADDRESS1                       ADDRESS2                       CITY               PINCODE STATE              BAL_DUE                                                                                                            
+========== =============== ============================== ============================== =============== ========== =============== ==========                                                                                                            
+C00001     Ivan Bayross                                                                  Mumbai              400054 Maharashtra          15000                                                                                                            
+C00002     Mamta Muzumdar                                                                Madras              780001 Tamil Nadu               0                                                                                                            
+C00003     Chhaya Bankar                                                                 Mumbai              560001 Maharashtra           5000                                                                                                            
+C00004     Ashwini Joshi                                                                 Bangalore           560001 Karnataka                0                                                                                                            
+C00005     Hansel Colaco                                                                 Mumbai              400060 Maharashtra           2000                                                                                                            
+C00006     Deepak Sharma                                                                 Mangalore           560050 Karnataka                0                                                                                                            
+
+6 rows selected.
+
+SQL> set underline -;
+SQL> select * from Client_Master;
+
+           Client                                                                                                                                                                                                                                         
+ClientNO   Names           ADDRESS1                       ADDRESS2                       CITY               PINCODE STATE              BAL_DUE                                                                                                            
+---------- --------------- ------------------------------ ------------------------------ --------------- ---------- --------------- ----------                                                                                                            
+C00001     Ivan Bayross                                                                  Mumbai              400054 Maharashtra          15000                                                                                                            
+C00002     Mamta Muzumdar                                                                Madras              780001 Tamil Nadu               0                                                                                                            
+C00003     Chhaya Bankar                                                                 Mumbai              560001 Maharashtra           5000                                                                                                            
+C00004     Ashwini Joshi                                                                 Bangalore           560001 Karnataka                0                                                                                                            
+C00005     Hansel Colaco                                                                 Mumbai              400060 Maharashtra           2000                                                                                                            
+C00006     Deepak Sharma                                                                 Mangalore           560050 Karnataka                0                                                                                                            
+
+6 rows selected.
+
+SQL> COLUMN SellPrice Format $99,990;
+SQL> select * from Product_Master;
+
+PRODUC DESCRIPTION     PROFITPERCENT UNITMEASUR  QTYONHAND REORDERLVL SELLPRICE  COSTPRICE                                                                                                                                                                
+------ --------------- ------------- ---------- ---------- ---------- --------- ----------                                                                                                                                                                
+P00001 T-Shirts                    5 Piece             200         50      $350        250                                                                                                                                                                
+P0345  Shirts                      6 Piece             150         50      $500        350                                                                                                                                                                
+P06734 Cotton Jeans                5 Piece             100         20      $600        450                                                                                                                                                                
+P07865 Jeans                       5 Piece             100         20      $750        500                                                                                                                                                                
+P07868 Trousers                    2 Piece             150         50      $850        550                                                                                                                                                                
+P07885 Pull Overs                2.5 Piece              80         30      $700        450                                                                                                                                                                
+P07965 Denim Shirts                4 Piece             100         40      $350        250                                                                                                                                                                
+P07975 Lycra Tops                  5 Piece              70         30      $300        175                                                                                                                                                                
+P08865 Skirts                      5 Piece              75         30      $450        300                                                                                                                                                                
+
+9 rows selected.
+
+SQL> COLUMN SellPrice Format RS99,990;
+SP2-0246: Illegal FORMAT string "RS99,990"
+SQL> COLUMN SellPrice Format 'RS99,990';
+SP2-0246: Illegal FORMAT string "RS99,990"
