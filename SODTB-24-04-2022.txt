@@ -1,0 +1,286 @@
+SQL> create table Sales_Order_Details(OrderNo varchar2(6), ProductNo varchar2(6), QtyOrdered number(8), QtyDisp number(8), ProductRate number(10,2), constraint SOD_fk FOREIGN KEY(OrderNo) REFERENCES Sales_Order(OrderNo), constraint SOD_fk1 FOREIGN KEY(ProductNo) REFERENCES Product_Master(ProductNo));
+
+Table created.
+
+SQL> insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate);
+Enter value for orderno: O19001
+Enter value for prono: P00001
+Enter value for qtyord: 4
+Enter value for qtydisp: 4
+Enter value for prorate: 525
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O19001','P00001',4,4,525)
+
+1 row created.
+
+SQL> /
+Enter value for orderno: O19001
+Enter value for prono: P07965
+Enter value for qtyord: 
+Enter value for qtydisp: ld
+Enter value for prorate: s
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O19001','P07965',,ld,s)
+insert into Sales_Order_Details values('O19001','P07965',,ld,s)
+                                                         *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> /
+Enter value for orderno: O19001
+Enter value for prono: P07965
+Enter value for qtyord: 4
+Enter value for qtydisp: ls
+Enter value for prorate: 
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O19001','P07965',4,ls,)
+insert into Sales_Order_Details values('O19001','P07965',4,ls,)
+                                                              *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> /
+Enter value for orderno: O19001
+Enter value for prono: P07965
+Enter value for qtyord: 4
+Enter value for qtydisp: ls
+Enter value for prorate: 
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O19001','P07965',4,ls,)
+insert into Sales_Order_Details values('O19001','P07965',4,ls,)
+                                                              *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> /
+Enter value for orderno: O19001
+Enter value for prono: P07965
+Enter value for qtyord: 2
+Enter value for qtydisp: 1
+Enter value for prorate: 8400
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O19001','P07965',2,1,8400)
+
+1 row created.
+
+SQL> /
+Enter value for orderno: O19001
+Enter value for prono: P07885
+Enter value for qtyord: 2
+Enter value for qtydisp: 1
+Enter value for prorate: 5250
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O19001','P07885',2,1,5250)
+
+1 row created.
+
+SQL> /
+Enter value for orderno: O19002
+Enter value for prono: P00001
+Enter value for qtyord: 10
+Enter value for qtydisp: 0
+Enter value for prorate: 525
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O19002','P00001',10,0,525)
+
+1 row created.
+
+SQL> /
+Enter value for orderno: O46865
+Enter value for prono: P07868
+Enter value for qtyord: 3
+Enter value for qtydisp: 3
+Enter value for prorate: 3150
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O46865','P07868',3,3,3150)
+
+1 row created.
+
+SQL> /
+Enter value for orderno: O46865
+Enter value for prono: P07885
+Enter value for qtyord: 3
+Enter value for qtydisp: 1
+Enter value for prorate: 5250
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O46865','P07885',3,1,5250)
+
+1 row created.
+
+SQL> /
+Enter value for orderno: O46865
+Enter value for prono: P00001
+Enter value for qtyord: 10
+Enter value for qtydisp: 10
+Enter value for prorate: 525
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O46865','P00001',10,10,525)
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate);
+Enter value for orderno: O46865
+Enter value for prono: P0345
+Enter value for qtyord: 4
+Enter value for qtydisp: 4
+Enter value for prorate: 1050
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O46865','P0345',4,4,1050)
+
+1 row created.
+
+SQL> /
+Enter value for orderno: O19003
+Enter value for prono: P03453
+Enter value for qtyord: 2
+Enter value for qtydisp: 2
+Enter value for prorate: 1050
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O19003','P03453',2,2,1050)
+insert into Sales_Order_Details values('O19003','P03453',2,2,1050)
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (SYSTEM.SOD_FK1) violated - parent key not found 
+
+
+SQL> /
+Enter value for orderno: O19003
+Enter value for prono: P0345
+Enter value for qtyord: 2
+Enter value for qtydisp: 2
+Enter value for prorate: 1050
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O19003','P0345',2,2,1050)
+
+1 row created.
+
+SQL> /
+Enter value for orderno: O46866
+Enter value for prono: P06738
+Enter value for qtyord: 1
+Enter value for qtydisp: 1
+Enter value for prorate: 8400
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O46866','P06738',1,1,8400)
+insert into Sales_Order_Details values('O46866','P06738',1,1,8400)
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (SYSTEM.SOD_FK1) violated - parent key not found 
+
+
+SQL> /
+Enter value for orderno: O19003
+Enter value for prono: P06734
+Enter value for qtyord: 1
+Enter value for qtydisp: 1
+Enter value for prorate: 12000
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O19003','P06734',1,1,12000)
+
+1 row created.
+
+SQL> /
+Enter value for orderno: O46866
+Enter value for prono: P07965
+Enter value for qtyord: 1
+Enter value for qtydisp: 0
+Enter value for prorate: 8400
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O46866','P07965',1,0,8400)
+
+1 row created.
+
+SQL> /
+Enter value for orderno: O46866
+Enter value for prono: P07975
+Enter value for qtyord: 1
+Enter value for qtydisp: 0
+Enter value for prorate: 1050
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O46866','P07975',1,0,1050)
+
+1 row created.
+
+SQL> /
+Enter value for orderno: O19008
+Enter value for prono: P00001
+Enter value for qtyord: 10
+Enter value for qtydisp: 5
+Enter value for prorate: 525
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O19008','P00001',10,5,525)
+
+1 row created.
+
+SQL> /
+Enter value for orderno: O19008
+Enter value for prono: P07975
+Enter value for qtyord: 5
+Enter value for qtydisp: 3
+Enter value for prorate: 1050
+old   1: insert into Sales_Order_Details values('&OrderNo','&ProNo',&QtyOrd,&QtyDisp,&ProRate)
+new   1: insert into Sales_Order_Details values('O19008','P07975',5,3,1050)
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select * from Sales_Order_Details;
+
+ORDERN PRODUC QTYORDERED    QTYDISP PRODUCTRATE                                                                                                                                                                                                           
+------ ------ ---------- ---------- -----------                                                                                                                                                                                                           
+O19001 P00001          4          4         525                                                                                                                                                                                                           
+O19001 P07965          2          1        8400                                                                                                                                                                                                           
+O19001 P07885          2          1        5250                                                                                                                                                                                                           
+O19002 P00001         10          0         525                                                                                                                                                                                                           
+O46865 P07868          3          3        3150                                                                                                                                                                                                           
+O46865 P07885          3          1        5250                                                                                                                                                                                                           
+O46865 P00001         10         10         525                                                                                                                                                                                                           
+O46865 P0345           4          4        1050                                                                                                                                                                                                           
+O19003 P0345           2          2        1050                                                                                                                                                                                                           
+O19003 P06734          1          1       12000                                                                                                                                                                                                           
+O46866 P07965          1          0        8400                                                                                                                                                                                                           
+
+ORDERN PRODUC QTYORDERED    QTYDISP PRODUCTRATE                                                                                                                                                                                                           
+------ ------ ---------- ---------- -----------                                                                                                                                                                                                           
+O46866 P07975          1          0        1050                                                                                                                                                                                                           
+O19008 P00001         10          5         525                                                                                                                                                                                                           
+O19008 P07975          5          3        1050                                                                                                                                                                                                           
+
+14 rows selected.
+
+SQL> set line 250;
+SQL> select * from Sales_Order_Details;
+
+ORDERN PRODUC QTYORDERED    QTYDISP PRODUCTRATE                                                                                                                                                                                                           
+------ ------ ---------- ---------- -----------                                                                                                                                                                                                           
+O19001 P00001          4          4         525                                                                                                                                                                                                           
+O19001 P07965          2          1        8400                                                                                                                                                                                                           
+O19001 P07885          2          1        5250                                                                                                                                                                                                           
+O19002 P00001         10          0         525                                                                                                                                                                                                           
+O46865 P07868          3          3        3150                                                                                                                                                                                                           
+O46865 P07885          3          1        5250                                                                                                                                                                                                           
+O46865 P00001         10         10         525                                                                                                                                                                                                           
+O46865 P0345           4          4        1050                                                                                                                                                                                                           
+O19003 P0345           2          2        1050                                                                                                                                                                                                           
+O19003 P06734          1          1       12000                                                                                                                                                                                                           
+O46866 P07965          1          0        8400                                                                                                                                                                                                           
+
+ORDERN PRODUC QTYORDERED    QTYDISP PRODUCTRATE                                                                                                                                                                                                           
+------ ------ ---------- ---------- -----------                                                                                                                                                                                                           
+O46866 P07975          1          0        1050                                                                                                                                                                                                           
+O19008 P00001         10          5         525                                                                                                                                                                                                           
+O19008 P07975          5          3        1050                                                                                                                                                                                                           
+
+14 rows selected.
+
+SQL> spool off;
