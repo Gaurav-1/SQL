@@ -1,0 +1,208 @@
+SQL> select * from Client_Master where Name LIKE '_a%';
+
+CLIENT NAME                 ADDRESS1                       ADDRESS2                       CITY               PINCODE STATE              BAL_DUE                                                                                                           
+------ -------------------- ------------------------------ ------------------------------ --------------- ---------- --------------- ----------                                                                                                           
+C00002 Mamta Muzumdar                                                                     Madras              780001 Tamil Nadu               0                                                                                                           
+C00005 Hansel Colaco                                                                      Mumbai              400060 Maharashtra           2000                                                                                                           
+
+SQL> select * from Client_Master where City LIKE 'M%';
+
+CLIENT NAME                 ADDRESS1                       ADDRESS2                       CITY               PINCODE STATE              BAL_DUE                                                                                                           
+------ -------------------- ------------------------------ ------------------------------ --------------- ---------- --------------- ----------                                                                                                           
+C00001 Ivan Bayross                                                                       Mumbai              400054 Maharashtra          15000                                                                                                           
+C00002 Mamta Muzumdar                                                                     Madras              780001 Tamil Nadu               0                                                                                                           
+C00003 Chhaya Bankar                                                                      Mumbai              560001 Maharashtra           5000                                                                                                           
+C00005 Hansel Colaco                                                                      Mumbai              400060 Maharashtra           2000                                                                                                           
+C00006 Deepak Sharma                                                                      Mangalore           560050 Karnataka                0                                                                                                           
+
+SQL> select * from Client_Master where City='Banglore' or City='Mangalore';
+
+CLIENT NAME                 ADDRESS1                       ADDRESS2                       CITY               PINCODE STATE              BAL_DUE                                                                                                           
+------ -------------------- ------------------------------ ------------------------------ --------------- ---------- --------------- ----------                                                                                                           
+C00006 Deepak Sharma                                                                      Mangalore           560050 Karnataka                0                                                                                                           
+
+SQL> select * from Client_Master where Bal_Due>10000;
+
+CLIENT NAME                 ADDRESS1                       ADDRESS2                       CITY               PINCODE STATE              BAL_DUE                                                                                                           
+------ -------------------- ------------------------------ ------------------------------ --------------- ---------- --------------- ----------                                                                                                           
+C00001 Ivan Bayross                                                                       Mumbai              400054 Maharashtra          15000                                                                                                           
+
+SQL> select * from Sales_Order where TO_CHAR(OrderDate,'Mon')='Jun';
+
+ORDERN CLIENTNO             ORDERDATE DELYADDR                  SALESM D B DELYDATE  ORDERSTATU                                                                                                                                                           
+------ -------------------- --------- ------------------------- ------ - - --------- ----------                                                                                                                                                           
+O19001 C00001               12-JUN-04                           S00001 F N 20-JUL-04 In Process                                                                                                                                                           
+O19002 C00002               25-JUN-04                           S00002 P N 20-JUL-04 Cancelled                                                                                                                                                            
+
+SQL> select * from Sales_Order where ClientNO='C00001' OR ClientNo='C00002';
+
+ORDERN CLIENTNO             ORDERDATE DELYADDR                  SALESM D B DELYDATE  ORDERSTATU                                                                                                                                                           
+------ -------------------- --------- ------------------------- ------ - - --------- ----------                                                                                                                                                           
+O19001 C00001               12-JUN-04                           S00001 F N 20-JUL-04 In Process                                                                                                                                                           
+O19002 C00002               25-JUN-04                           S00002 P N 20-JUL-04 Cancelled                                                                                                                                                            
+O19003 C00001               03-APR-04                           S00003 F Y 07-APR-04 Fullfilled                                                                                                                                                           
+
+SQL> select * from Product_Master where SellPrice>500 AND SellPrice<=750;
+
+PRODUC DESCRIPTION     PROFITPERCENT UNITMEASUR  QTYONHAND REORDERLVL  SELLPRICE  COSTPRICE                                                                                                                                                               
+------ --------------- ------------- ---------- ---------- ---------- ---------- ----------                                                                                                                                                               
+P06734 Cotton Jeans                5 Piece             100         20        600        450                                                                                                                                                               
+P07865 Jeans                       5 Piece             100         20        750        500                                                                                                                                                               
+P07885 Pull Overs                2.5 Piece              80         30        700        450                                                                                                                                                               
+
+SQL> select Description,SellPrice,SellPrice * 0.15 "New_Price" from Product_Master where SellPrice>500;
+
+DESCRIPTION      SELLPRICE  New_Price                                                                                                                                                                                                                     
+--------------- ---------- ----------                                                                                                                                                                                                                     
+Cotton Jeans           600         90                                                                                                                                                                                                                     
+Jeans                  750      112.5                                                                                                                                                                                                                     
+Trousers               850      127.5                                                                                                                                                                                                                     
+Pull Overs             700        105                                                                                                                                                                                                                     
+
+SQL> select Name,City,state from Client_Master where State!='Maharashtra';
+
+NAME                 CITY            STATE                                                                                                                                                                                                                
+-------------------- --------------- ---------------                                                                                                                                                                                                      
+Mamta Muzumdar       Madras          Tamil Nadu                                                                                                                                                                                                           
+Ashwini Joshi        Bangalore       Karnataka                                                                                                                                                                                                            
+Deepak Sharma        Mangalore       Karnataka                                                                                                                                                                                                            
+
+SQL> select count(*) "Total Orders" from Product_Master;
+
+Total Orders                                                                                                                                                                                                                                              
+------------                                                                                                                                                                                                                                              
+           9                                                                                                                                                                                                                                              
+
+SQL> select count(ProductNO) "Total Orders" from Product_Master;
+
+Total Orders                                                                                                                                                                                                                                              
+------------                                                                                                                                                                                                                                              
+           9                                                                                                                                                                                                                                              
+
+SQL> select max(SellPrice) "Max_Price",min(SellPrice) "Min_Price" from Product_Master;
+
+ Max_Price  Min_Price                                                                                                                                                                                                                                     
+---------- ----------                                                                                                                                                                                                                                     
+       850        300                                                                                                                                                                                                                                     
+
+SQL> select avg(SellPrice) "Avg SellPrice",avg(CostPrice) "Avg CostPrice" from Product_Master;
+
+Avg SellPrice Avg CostPrice                                                                                                                                                                                                                               
+------------- -------------                                                                                                                                                                                                                               
+   538.888889    363.888889                                                                                                                                                                                                                               
+
+SQL> select sum(SellPrice)/count(SellPrice) "Avg SellPrice",sum(CostPrice)/count(CostPrice) "Avg CostPrice" from Product_Master;
+
+Avg SellPrice Avg CostPrice                                                                                                                                                                                                                               
+------------- -------------                                                                                                                                                                                                                               
+   538.888889    363.888889                                                                                                                                                                                                                               
+
+SQL> select count(ProductNo) from Product_Master where SellPrice<=500;
+
+COUNT(PRODUCTNO)                                                                                                                                                                                                                                          
+----------------                                                                                                                                                                                                                                          
+               5                                                                                                                                                                                                                                          
+
+SQL> select * from Product_Master where QtyOnHand<ReorderLVL;
+
+no rows selected
+
+SQL>  select OrderNo,OrderDate,TO_CHAR(DelyDate,'MON') "Delivery Month" from Sales_Order;
+
+ORDERN ORDERDATE Delivery Mon                                                                                                                                                                                                                             
+------ --------- ------------                                                                                                                                                                                                                             
+O19001 12-JUN-04 JUL                                                                                                                                                                                                                                      
+O19002 25-JUN-04 JUL                                                                                                                                                                                                                                      
+O46865 18-FEB-04 FEB                                                                                                                                                                                                                                      
+O19003 03-APR-04 APR                                                                                                                                                                                                                                      
+O46866 20-MAY-04 MAY                                                                                                                                                                                                                                      
+O19008 24-MAY-04 JUL                                                                                                                                                                                                                                      
+
+6 rows selected.
+
+SQL>  select OrderNo,TO_CHAR(OrderDate,'DAY') "Order Day" from Sales_Order;
+
+ORDERN Order Day                                                                                                                                                                                                                                          
+------ ------------------------------------                                                                                                                                                                                                               
+O19001 SATURDAY                                                                                                                                                                                                                                           
+O19002 FRIDAY                                                                                                                                                                                                                                             
+O46865 WEDNESDAY                                                                                                                                                                                                                                          
+O19003 SATURDAY                                                                                                                                                                                                                                           
+O46866 THURSDAY                                                                                                                                                                                                                                           
+O19008 MONDAY                                                                                                                                                                                                                                             
+
+6 rows selected.
+
+SQL>  select OrderNo,OrderDate,TO_CHAR(DelyDate,'MONTH') "Delivery Month" from Sales_Order;
+
+ORDERN ORDERDATE Delivery Month                                                                                                                                                                                                                           
+------ --------- ------------------------------------                                                                                                                                                                                                     
+O19001 12-JUN-04 JULY                                                                                                                                                                                                                                     
+O19002 25-JUN-04 JULY                                                                                                                                                                                                                                     
+O46865 18-FEB-04 FEBRUARY                                                                                                                                                                                                                                 
+O19003 03-APR-04 APRIL                                                                                                                                                                                                                                    
+O46866 20-MAY-04 MAY                                                                                                                                                                                                                                      
+O19008 24-MAY-04 JULY                                                                                                                                                                                                                                     
+
+6 rows selected.
+
+SQL>  select OrderNo,TO_CHAR(OrderDate,'DAY-MONTH-YEAR') "Delivery Month" from Sales_Order;
+
+ORDERN Delivery Month                                                                                                                                                                                                                                     
+------ --------------------------------------------------------------------------------------------------------------------                                                                                                                               
+O19001 SATURDAY -JUNE     -TWO THOUSAND FOUR                                                                                                                                                                                                              
+O19002 FRIDAY   -JUNE     -TWO THOUSAND FOUR                                                                                                                                                                                                              
+O46865 WEDNESDAY-FEBRUARY -TWO THOUSAND FOUR                                                                                                                                                                                                              
+O19003 SATURDAY -APRIL    -TWO THOUSAND FOUR                                                                                                                                                                                                              
+O46866 THURSDAY -MAY      -TWO THOUSAND FOUR                                                                                                                                                                                                              
+O19008 MONDAY   -MAY      -TWO THOUSAND FOUR                                                                                                                                                                                                              
+
+6 rows selected.
+
+SQL>  select OrderNo,TO_CHAR(OrderDate,'DD-MONTH-YY') "Delivery Month" from Sales_Order;
+
+ORDERN Delivery Month                                                                                                                                                                                                                                     
+------ ------------------------------------------                                                                                                                                                                                                         
+O19001 12-JUNE     -04                                                                                                                                                                                                                                    
+O19002 25-JUNE     -04                                                                                                                                                                                                                                    
+O46865 18-FEBRUARY -04                                                                                                                                                                                                                                    
+O19003 03-APRIL    -04                                                                                                                                                                                                                                    
+O46866 20-MAY      -04                                                                                                                                                                                                                                    
+O19008 24-MAY      -04                                                                                                                                                                                                                                    
+
+6 rows selected.
+
+SQL>  select OrderNo,TO_CHAR(OrderDate,'DD-MONTH-YY') "Order Date" from Sales_Order;
+
+ORDERN Order Date                                                                                                                                                                                                                                         
+------ ------------------------------------------                                                                                                                                                                                                         
+O19001 12-JUNE     -04                                                                                                                                                                                                                                    
+O19002 25-JUNE     -04                                                                                                                                                                                                                                    
+O46865 18-FEBRUARY -04                                                                                                                                                                                                                                    
+O19003 03-APRIL    -04                                                                                                                                                                                                                                    
+O46866 20-MAY      -04                                                                                                                                                                                                                                    
+O19008 24-MAY      -04                                                                                                                                                                                                                                    
+
+6 rows selected.
+
+SQL>  select DelyDate from Sales_Order where DelyDate=SYSDATE+15;
+
+no rows selected
+
+SQL> SELECT SYSDATE + 15 FROM DUAL;
+
+SYSDATE+1                                                                                                                                                                                                                                                 
+---------                                                                                                                                                                                                                                                 
+16-MAY-22                                                                                                                                                                                                                                                 
+
+SQL> SELECT TO_CHAR(SYSDATE,'DD-MM-YY') FROM DUAL;
+
+TO_CHAR(                                                                                                                                                                                                                                                  
+--------                                                                                                                                                                                                                                                  
+01-05-22                                                                                                                                                                                                                                                  
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;
