@@ -18,16 +18,6 @@ SQL> insert into Cl_master values('C00001','Arpit','','','Mumbai',400054,'Mahara
 
 1 row created.
 
-SQL> select * from Cl_master;
-
-CL_NO  NAME            ADD1                      ADD2                           
------- --------------- ------------------------- -------------------------      
-CITY          PINCODE STATE              BAL_DUE                                
----------- ---------- --------------- ----------                                
-C00001 Arpit                                                                    
-Mumbai         400054 Maharashtra          15000                                
-                                                                                
-
 SQL> insert into Cl_master values('&cl_no','&name','','','&city',&pincode,'&state',&bal_due);
 Enter value for cl_no: C00002
 Enter value for name: Satvik
