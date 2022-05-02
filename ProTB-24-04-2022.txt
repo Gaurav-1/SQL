@@ -6,40 +6,6 @@ SQL> insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,
 Enter value for prono: P00001
 Enter value for des: T-Shirts
 Enter value for pftprct: 5
-Enter value for unitmea: Pices
-Enter value for qoh: s
-Enter value for reord: s
-Enter value for sell: s
-Enter value for cost: s
-old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost)
-new   1: insert into Product_Master values('P00001','T-Shirts',5,'Pices',s,s,s,s)
-insert into Product_Master values('P00001','T-Shirts',5,'Pices',s,s,s,s)
-                                                                      *
-ERROR at line 1:
-ORA-00984: column not allowed here 
-
-
-SQL> /
-Enter value for prono: P00001
-Enter value for des: Ta
-Enter value for pftprct: a
-Enter value for unitmea: a
-Enter value for qoh: 
-Enter value for reord: a
-Enter value for sell: a
-Enter value for cost: a
-old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost)
-new   1: insert into Product_Master values('P00001','Ta',a,'a',,a,a,a)
-insert into Product_Master values('P00001','Ta',a,'a',,a,a,a)
-                                                      *
-ERROR at line 1:
-ORA-00936: missing expression 
-
-
-SQL> insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost);
-Enter value for prono: P00001
-Enter value for des: T-Shirts
-Enter value for pftprct: 5
 Enter value for unitmea: Piece
 Enter value for qoh: 200
 Enter value for reord: 50
@@ -63,23 +29,6 @@ old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&
 new   1: insert into Product_Master values('P0345','Shirts',6,'Piece',150,50,500,350)
 
 1 row created.
-
-SQL> /
-Enter value for prono: P06734
-Enter value for des: Cotton Jeans
-Enter value for pftprct: 5
-Enter value for unitmea: Piece
-Enter value for qoh: 150
-Enter value for reord: d
-Enter value for sell: d
-Enter value for cost: d
-old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&QOH,&Reord,&Sell,&Cost)
-new   1: insert into Product_Master values('P06734','Cotton Jeans',5,'Piece',150,d,d,d)
-insert into Product_Master values('P06734','Cotton Jeans',5,'Piece',150,d,d,d)
-                                                                            *
-ERROR at line 1:
-ORA-00984: column not allowed here 
-
 
 SQL> /
 Enter value for prono: P06734
@@ -178,5 +127,8 @@ old   1: insert into Product_Master values('&ProNO','&Des',&PftPrct,'&UnitMea',&
 new   1: insert into Product_Master values('P08865','Skirts',5,'Piece',75,30,450,300)
 
 1 row created.
+
+SQL> commit;
+Commit complete.
 
 SQL> spool off;
