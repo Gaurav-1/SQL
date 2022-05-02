@@ -1,23 +1,6 @@
-
 SQL> create table Sales_order(OrderNo varchar2(6), ClientNo varchar2(20), OrderDate date not null, DelyAddr varchar2(25), SalesManNo varchar2(6), DelyType char(1) DEFAULT 'F', Billyn char(1), DelyDate date, OrderStatus varchar2(10), constraint Sales_dropdown check(DelyType in('P','F')), constraint Sales_dropdown1 check(OrderStatus in('In Process','Fullfilled','BackOrder','Cancelled')), constraint Sales_pk PRIMARY KEY(OrderNo), constraint Sales_Pkchk CHECK(OrderNo like 'O%'), constraint Sale_fk FOREIGN KEY(ClientNo) REFERENCES Client_Master(ClientNo),constraint Sale_fk1 FOREIGN KEY(SalesManNo) REFERENCES SalesMan_Master(SalesManNo), constraint Sales_chk CHECK(DelyDate>=OrderDate));
 
 Table created.
-
-SQL> insert into SalesMan_Master values('&SMN','&SName','&addr1','&addr2','Mumbai',&pincode,'Maharashtra',3000,&TTG,&YS,'Good');
-Enter value for smn: S00001
-Enter value for sname: 
-Enter value for addr1: 
-Enter value for addr2: 
-Enter value for pincode: 
-Enter value for ttg: 
-Enter value for ys: 
-old   1: insert into SalesMan_Master values('&SMN','&SName','&addr1','&addr2','Mumbai',&pincode,'Maharashtra',3000,&TTG,&YS,'Good')
-new   1: insert into SalesMan_Master values('S00001','','','','Mumbai',,'Maharashtra',3000,,,'Good')
-insert into SalesMan_Master values('S00001','','','','Mumbai',,'Maharashtra',3000,,,'Good')
-                                                              *
-ERROR at line 1:
-ORA-00936: missing expression 
-
 
 SQL> insert into Sales_Order values('&OrdNo','&ClientNo','&OrderDate','','&SManNo','&DelyType','&BillYN','&DelyDate','&OrderStatus');
 Enter value for ordno: O19001
@@ -88,62 +71,6 @@ old   1: insert into Sales_Order values('&OrdNo','&ClientNo','&OrderDate','','&S
 new   1: insert into Sales_Order values('O46866','C00004','20-May-04','','S00002','P','N','22-May-04','Cancelled')
 
 1 row created.
-
-SQL> /
-Enter value for ordno: O19008
-Enter value for clientno: C00005
-Enter value for orderdate: 24-May-04
-Enter value for smanno: S00002
-Enter value for delytype: F
-Enter value for billyn: 
-Enter value for delydate: 
-Enter value for orderstatus: 
-old   1: insert into Sales_Order values('&OrdNo','&ClientNo','&OrderDate','','&SManNo','&DelyType','&BillYN','&DelyDate','&OrderStatus')
-new   1: insert into Sales_Order values('O19008','C00005','24-May-04','','S00002','F','','','')
-
-1 row created.
-
-SQL> delete from Sales_Order where OrderNo=O19008;
-delete from Sales_Order where OrderNo=O19008
-                                      *
-ERROR at line 1:
-ORA-00904: "O19008": invalid identifier 
-
-
-SQL> delete from Sales_Order where OrderNo==O19008;
-delete from Sales_Order where OrderNo==O19008
-                                      *
-ERROR at line 1:
-ORA-00936: missing expression 
-
-
-SQL> delete from Sales_Order where OrderNo=='O19008';
-delete from Sales_Order where OrderNo=='O19008'
-                                      *
-ERROR at line 1:
-ORA-00936: missing expression 
-
-
-SQL> delete from Sales_Order where OrderNo='O19008';
-
-1 row deleted.
-
-SQL> insert into Sales_Order values('&OrdNo','&ClientNo','&OrderDate','','&SManNo','&DelyType','&BillYN','&DelyDate','&OrderStatus');
-Enter value for ordno: O19008
-Enter value for clientno: C00005
-Enter value for orderdate: 24-May-04
-Enter value for smanno: S00004
-Enter value for delytype: F
-Enter value for billyn: N
-Enter value for delydate: 26-July-02
-Enter value for orderstatus: In Process
-old   1: insert into Sales_Order values('&OrdNo','&ClientNo','&OrderDate','','&SManNo','&DelyType','&BillYN','&DelyDate','&OrderStatus')
-new   1: insert into Sales_Order values('O19008','C00005','24-May-04','','S00004','F','N','26-July-02','In Process')
-insert into Sales_Order values('O19008','C00005','24-May-04','','S00004','F','N','26-July-02','In Process')
-*
-ERROR at line 1:
-ORA-02290: check constraint (SYSTEM.SALES_CHK) violated 
-
 
 SQL> /
 Enter value for ordno: O19008
