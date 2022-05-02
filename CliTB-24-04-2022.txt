@@ -1,58 +1,6 @@
-SQL> create table Client_Master(ClientNo varchar2(6),Name varchar2(20) not null,Address1 varchar2(30),Address2 varchar2(30),City varchar2(15),Pincode number(8),State varchar2(15),bal_due number(10,2), constraint Cl_pk PRIMARY KEY(ClientNo), constraint Cli_chk CHECK ClientNo like 'C%');
-create table Client_Master(ClientNo varchar2(6),Name varchar2(20) not null,Address1 varchar2(30),Address2 varchar2(30),City varchar2(15),Pincode number(8),State varchar2(15),bal_due number(10,2), constraint Cl_pk PRIMARY KEY(ClientNo), constraint Cli_chk CHECK ClientNo like 'C%')
-                                                                                                                                                                                                                                                                     *
-ERROR at line 1:
-ORA-00906: missing left parenthesis 
-
-
 SQL> create table Client_Master(ClientNo varchar2(6),Name varchar2(20) not null,Address1 varchar2(30),Address2 varchar2(30),City varchar2(15),Pincode number(8),State varchar2(15),bal_due number(10,2), constraint Cl_pk PRIMARY KEY(ClientNo), constraint Cli_chk CHECK(ClientNo like 'C%'));
 
 Table created.
-
-SQL> insert into Client_Master values('&ClNo','&name','&city',&pincode,'&state',&BalDue);
-Enter value for clno: 00001
-Enter value for name: Ivan Bayross
-Enter value for city: Mumbai
-Enter value for pincode: 400054
-Enter value for state: Maharashtra
-Enter value for baldue: 15000
-old   1: insert into Client_Master values('&ClNo','&name','&city',&pincode,'&state',&BalDue)
-new   1: insert into Client_Master values('00001','Ivan Bayross','Mumbai',400054,'Maharashtra',15000)
-insert into Client_Master values('00001','Ivan Bayross','Mumbai',400054,'Maharashtra',15000)
-            *
-ERROR at line 1:
-ORA-00947: not enough values 
-
-
-SQL> insert into Client_Master values('&ClNo','&name','','','&city',&pincode,'&state',&BalDue);
-Enter value for clno: 00001
-Enter value for name: Ivan Bayross
-Enter value for city: Mumbai
-Enter value for pincode: 400054
-Enter value for state: Maharashtra
-Enter value for baldue: 15000
-old   1: insert into Client_Master values('&ClNo','&name','','','&city',&pincode,'&state',&BalDue)
-new   1: insert into Client_Master values('00001','Ivan Bayross','','','Mumbai',400054,'Maharashtra',15000)
-insert into Client_Master values('00001','Ivan Bayross','','','Mumbai',400054,'Maharashtra',15000)
-*
-ERROR at line 1:
-ORA-02290: check constraint (SYSTEM.CLI_CHK) violated 
-
-
-SQL> insert into Client_Master values('&ClNo','&name','&city',&pincode,'&state',&BalDue);
-Enter value for clno: C00001
-Enter value for name: Ivan Bayross
-Enter value for city: Mumbai
-Enter value for pincode: 400054
-Enter value for state: Maharashtra
-Enter value for baldue: 15000
-old   1: insert into Client_Master values('&ClNo','&name','&city',&pincode,'&state',&BalDue)
-new   1: insert into Client_Master values('C00001','Ivan Bayross','Mumbai',400054,'Maharashtra',15000)
-insert into Client_Master values('C00001','Ivan Bayross','Mumbai',400054,'Maharashtra',15000)
-            *
-ERROR at line 1:
-ORA-00947: not enough values 
-
 
 SQL> insert into Client_Master values('&ClNo','&name','','','&city',&pincode,'&state',&BalDue);
 Enter value for clno: C00001
@@ -125,5 +73,8 @@ old   1: insert into Client_Master values('&ClNo','&name','','','&city',&pincode
 new   1: insert into Client_Master values('C00006','Deepak Sharma','','','Mangalore',560050,'Karnataka',0)
 
 1 row created.
+
+SQL> commit;
+Commit complete.
 
 SQL> spool off;
